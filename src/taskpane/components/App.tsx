@@ -18,8 +18,8 @@ const useStyles = makeStyles({
 
 const App: React.FC<AppProps> = (props: AppProps) => {
   const styles = useStyles();
-  // The list items are static and won't change at runtime,
-  // so this should be an ordinary const, not a part of state.
+
+  // change this so that it's a short tutorial on how to use the add-in
   const listItems: HeroListItem[] = [
     {
       icon: <Ribbon24Regular />,
@@ -37,8 +37,8 @@ const App: React.FC<AppProps> = (props: AppProps) => {
 
   return (
     <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
-      <HeroList message="Discover what this add-in can do for you today!" items={listItems} />
+      <Header logo="assets/logo-filled.png" title={props.title} message="Blood Transfusion Automated Pairing" />
+      <HeroList message="How to use:" items={listItems} />
       <TextInsertion insertText={insertText} />
     </div>
   );

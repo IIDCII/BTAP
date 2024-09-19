@@ -43,12 +43,12 @@ const TextInsertion: React.FC<TextInsertionProps> = (props: TextInsertionProps) 
 
   return (
     <div className={styles.textPromptAndInsertion}>
-      <Field className={styles.textAreaField} size="large" label="Enter text to be inserted into the document.">
+      <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed">
         <Textarea size="large" value={text} onChange={handleTextChange} />
       </Field>
-      <Field className={styles.instructions}>Click the button to insert text.</Field>
+      <Field className={styles.instructions}>Click the button to generate the table of pairings</Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleTextInsertion}>
-        Insert text
+        Generate Pairings
       </Button>
     </div>
   );
