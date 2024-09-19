@@ -5,6 +5,7 @@ import TextInsertion from "./TextInsertion";
 import { makeStyles } from "@fluentui/react-components";
 import { Ribbon24Regular, LockOpen24Regular, DesignIdeas24Regular } from "@fluentui/react-icons";
 import { insertText } from "../taskpane";
+import OpenAIChat from "./APIHandler";
 
 interface AppProps {
   title: string;
@@ -38,8 +39,15 @@ const App: React.FC<AppProps> = (props: AppProps) => {
   return (
     <div className={styles.root}>
       <Header logo="assets/logo-filled.png" title={props.title} message="Blood Transfusion Automated Pairing" />
-      <HeroList message="How to use:" items={listItems} />
       <TextInsertion insertText={insertText} />
+
+      <br />
+
+      <OpenAIChat />
+
+      <br />
+
+      <HeroList message="How to use:" items={listItems} />
     </div>
   );
 };

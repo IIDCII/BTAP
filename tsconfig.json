@@ -6,14 +6,14 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "module": "CommonJS",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "outDir": "dist",
     "removeComments": false,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2017",
     "lib": [
       "es7",
       "dom"
