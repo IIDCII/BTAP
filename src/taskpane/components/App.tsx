@@ -39,7 +39,7 @@ const App: React.FC<AppProps> = (props: AppProps) => {
   return (
     <div className={styles.root}>
       <Header logo="assets/logo-filled.png" title={props.title} message="Blood Transfusion Automated Pairing" />
-      <TextInsertion insertText={insertText} />
+      {/* <TextInsertion insertText={insertText} /> */}
 
       <br />
 
