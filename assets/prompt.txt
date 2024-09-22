@@ -1,0 +1,1 @@
+using the excel spreadsheet inserted, can you make a list pairing blood donations to patients based on their attributes with list size being ListSize and start the list with the the mentioned column and edge. If not mentioned pick a place where it can fit without overlapping other data and if a pairing list is already there then replace it.

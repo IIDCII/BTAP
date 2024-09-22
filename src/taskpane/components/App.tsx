@@ -1,10 +1,8 @@
 import * as React from "react";
 import Header from "./Header";
 import HeroList, { HeroListItem } from "./HeroList";
-import TextInsertion from "./TextInsertion";
 import { makeStyles } from "@fluentui/react-components";
 import { Ribbon24Regular, LockOpen24Regular, DesignIdeas24Regular } from "@fluentui/react-icons";
-import { insertText } from "../taskpane";
 import OpenAIChat from "./APIHandler";
 
 interface AppProps {

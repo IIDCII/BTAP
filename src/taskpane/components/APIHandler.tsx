@@ -6,10 +6,37 @@ const OpenAIChat: React.FC = () => {
   const [inputText, setInputText] = useState('Enter prompt here');
   const [responseText, setResponseText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [sheetData, setSheetData] = useState('');
+
+  const getSheetContents = async () => {
+    try {
+      await Excel.run(async (context) => {
+        const sheet = context.workbook.worksheets.getActiveWorksheet();
+        const range = sheet.getUsedRange();
+        range.load('values');
+        
+        await context.sync();
+        
+        setSheetData(JSON.stringify(range.values));
+        
+        // checking if the data passes through
+        if (!sheetData || sheetData === JSON.stringify([[""]])) {
+          setResponseText("No data found, please make sure that the blood donation/patient data is present in the sheet and you've saved the sheet");
+        }
+
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      setResponseText(`Error: ${error.message}`);
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    await getSheetContents();
+    setResponseText(sheetData);
 
     try {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -33,9 +60,10 @@ const OpenAIChat: React.FC = () => {
       }
 
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-        // setResponseText(data.choices[0].message.content);
+        // need to segment the message here and pass it as different arguments to insertText
         insertText(data.choices[0].message.content);
       } else {
+        setResponseText('Unexpected response format');
         throw new Error('Unexpected response format');
       }
     } catch (error) {
@@ -54,12 +82,16 @@ const OpenAIChat: React.FC = () => {
 
   return (
     <div className = {styles.textPromptAndInsertion}>
-      <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed.\n E.g. 'I want only the id's of the pairings and give me the top 10 starting in row e column f'">
+      <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed.\n E.g. 'I want only the id's of the pairings'">
         <Textarea size="large" value={inputText} onChange={handleTextChange} />
       </Field>
       <Field className={styles.instructions}>Click the button to generate the table of pairings</Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleSubmit}>
         {isLoading ? 'Generating...' : 'Generate Pairings'}
+      </Button>
+
+      <Button appearance="primary" disabled={false} size="large" onClick={getSheetContents}>
+        {isLoading ? 'Generating...' : 'Get Sheet Contents'}
       </Button>
 
       {responseText && (
