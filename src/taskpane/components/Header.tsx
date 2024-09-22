@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     alignItems: "center",
     paddingBottom: "30px",
     paddingTop: "100px",
-    backgroundColor: tokens.colorNeutralBackground3,
   },
   message: {
     fontSize: tokens.fontSizeHero900,
@@ -29,7 +28,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 
   return (
     <section className={styles.welcome__header}>
-      <Image width="200" height="200" src={logo} alt={title} />
+      <Image width="200" height="80" src={logo} alt={title} />
       <h3>{message}</h3>
     </section>
   );

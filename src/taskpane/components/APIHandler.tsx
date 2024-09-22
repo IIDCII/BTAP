@@ -36,6 +36,7 @@ const OpenAIChat: React.FC = () => {
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
         // need to segment the message here and pass it as different arguments to insertText
         insertText(data.choices[0].message.content, inputCell);
+        setResponseText(data.choices[0].message.content);
       } else {
         setResponseText('Unexpected response format');
         throw new Error('Unexpected response format');
@@ -82,7 +83,7 @@ const OpenAIChat: React.FC = () => {
         <Textarea size="large" value={inputText} onChange={handleTextChange} placeholder = "Enter prompt here"/>
       </Field>
 
-      <Field className={styles.textAreaField} size="large" label="Enter the cell for the output">
+      <Field className={styles.textAreaField} size="large" label="Enter the cell for the output. Make sure to leave no spaces.">
         <Textarea style={{ maxWidth: "30%" }} size="large" value={inputCell} onChange={(event) => setInputCell(event.target.value)} />
       </Field>
 
