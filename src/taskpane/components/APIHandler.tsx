@@ -6,37 +6,10 @@ const OpenAIChat: React.FC = () => {
   const [inputText, setInputText] = useState('Enter prompt here');
   const [responseText, setResponseText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [sheetData, setSheetData] = useState('');
 
-  const getSheetContents = async () => {
-    try {
-      await Excel.run(async (context) => {
-        const sheet = context.workbook.worksheets.getActiveWorksheet();
-        const range = sheet.getUsedRange();
-        range.load('values');
-        
-        await context.sync();
-        
-        setSheetData(JSON.stringify(range.values));
-        
-        // checking if the data passes through
-        if (!sheetData || sheetData === JSON.stringify([[""]])) {
-          setResponseText("No data found, please make sure that the blood donation/patient data is present in the sheet and you've saved the sheet");
-        }
-
-      });
-    } catch (error) {
-      console.error('Error:', error);
-      setResponseText(`Error: ${error.message}`);
-    }
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleAPI = async (e: React.FormEvent, prompt: string) => {
     e.preventDefault();
     setIsLoading(true);
-
-    await getSheetContents();
-    setResponseText(sheetData);
 
     try {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -47,12 +20,12 @@ const OpenAIChat: React.FC = () => {
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: inputText }],
+          messages: [{ role: 'user', content: prompt }],
           max_tokens: 1000,
         }),
         
       });
-
+      setResponseText("The prompt the ai received: " + prompt);
       const data = await response.json();
 
       if (!response.ok) {
@@ -74,6 +47,28 @@ const OpenAIChat: React.FC = () => {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => { 
+    e.preventDefault();
+    
+    try {
+      await Excel.run(async (context) => {
+        const sheet = context.workbook.worksheets.getActiveWorksheet();
+        const range = sheet.getUsedRange();
+        range.load('values');
+        
+        await context.sync();
+        
+        const prompt = "the data in the excel sheet shown in a matrix format: " + JSON.stringify(range.values) + "\n prompt based on the excel data: " + inputText;
+
+        await handleAPI(e, prompt);
+        
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      setResponseText(`Error: ${error.message}`);
+    }
+  }
+
   const styles = useStyles();
 
   const handleTextChange = async (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -88,10 +83,6 @@ const OpenAIChat: React.FC = () => {
       <Field className={styles.instructions}>Click the button to generate the table of pairings</Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleSubmit}>
         {isLoading ? 'Generating...' : 'Generate Pairings'}
-      </Button>
-
-      <Button appearance="primary" disabled={false} size="large" onClick={getSheetContents}>
-        {isLoading ? 'Generating...' : 'Get Sheet Contents'}
       </Button>
 
       {responseText && (
