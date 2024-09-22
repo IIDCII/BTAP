@@ -4,6 +4,7 @@ import {insertText} from "../taskpane";
 
 const OpenAIChat: React.FC = () => {
   const [inputText, setInputText] = useState('Enter prompt here');
+  const [inputCell, setInputCell] = useState('A1');
   const [responseText, setResponseText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +26,7 @@ const OpenAIChat: React.FC = () => {
         }),
         
       });
-      setResponseText("The prompt the ai received: " + prompt);
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -34,7 +35,8 @@ const OpenAIChat: React.FC = () => {
 
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
         // need to segment the message here and pass it as different arguments to insertText
-        insertText(data.choices[0].message.content);
+        setResponseText(data.choices[0].message.content);
+        insertText(data.choices[0].message.content, inputCell);
       } else {
         setResponseText('Unexpected response format');
         throw new Error('Unexpected response format');
@@ -58,7 +60,7 @@ const OpenAIChat: React.FC = () => {
         
         await context.sync();
         
-        const prompt = "the data in the excel sheet shown in a matrix format: " + JSON.stringify(range.values) + "\n prompt based on the excel data: " + inputText;
+        const prompt = "the data in the excel sheet shown in a matrix format: " + JSON.stringify(range.values) + "\n prompt based on the excel data: " + inputText + "Could you respond in a matrix format similar to how excel sheet data is input. For example a response could be '[[hello world!]]' or '[[1,2],[3,4]]'";
 
         await handleAPI(e, prompt);
         
@@ -80,6 +82,11 @@ const OpenAIChat: React.FC = () => {
       <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed.\n E.g. 'I want only the id's of the pairings'">
         <Textarea size="large" value={inputText} onChange={handleTextChange} />
       </Field>
+
+      <Field className={styles.textAreaField} size="large" label="Enter the cell where you want the response to be inserted">
+        <Textarea size="large" value={inputCell} onChange={(event) => setInputCell(event.target.value)} />
+      </Field>
+
       <Field className={styles.instructions}>Click the button to generate the table of pairings</Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleSubmit}>
         {isLoading ? 'Generating...' : 'Generate Pairings'}
