@@ -3,7 +3,7 @@ import { Button, Field, Textarea, tokens, makeStyles } from "@fluentui/react-com
 import {insertText} from "../taskpane";
 
 const OpenAIChat: React.FC = () => {
-  const [inputText, setInputText] = useState('Enter prompt here');
+  const [inputText, setInputText] = useState('');
   const [inputCell, setInputCell] = useState('A1');
   const [responseText, setResponseText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +35,6 @@ const OpenAIChat: React.FC = () => {
 
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
         // need to segment the message here and pass it as different arguments to insertText
-        setResponseText(data.choices[0].message.content);
         insertText(data.choices[0].message.content, inputCell);
       } else {
         setResponseText('Unexpected response format');
@@ -79,12 +78,12 @@ const OpenAIChat: React.FC = () => {
 
   return (
     <div className = {styles.textPromptAndInsertion}>
-      <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed.\n E.g. 'I want only the id's of the pairings'">
-        <Textarea size="large" value={inputText} onChange={handleTextChange} />
+      <Field className={styles.textAreaField} size="large" label="Add any additional information for pairing if needed.">
+        <Textarea size="large" value={inputText} onChange={handleTextChange} placeholder = "Enter prompt here"/>
       </Field>
 
-      <Field className={styles.textAreaField} size="large" label="Enter the cell where you want the response to be inserted">
-        <Textarea size="large" value={inputCell} onChange={(event) => setInputCell(event.target.value)} />
+      <Field className={styles.textAreaField} size="large" label="Enter the cell for the output">
+        <Textarea style={{ maxWidth: "30%" }} size="large" value={inputCell} onChange={(event) => setInputCell(event.target.value)} />
       </Field>
 
       <Field className={styles.instructions}>Click the button to generate the table of pairings</Field>
@@ -97,7 +96,9 @@ const OpenAIChat: React.FC = () => {
           <p>{responseText}</p>
         </div>
       )}
+
     </div>
+    
   );
 };
 
@@ -118,6 +119,9 @@ const useStyles = makeStyles({
     marginBottom: "20px",
     marginRight: "20px",
     maxWidth: "50%",
+    flexDirection: "column",
+    alignItems: "center",
+    display: "flex",
   },
 });
 
