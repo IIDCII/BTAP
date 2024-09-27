@@ -5,17 +5,10 @@ Streamlining the process of matching blood donations with patients using the ope
 # How to use
 - lorem ipsum
 
-
-# Research
-- lorem ipsum
-
 # How it works
 - lorem ipsum
 
-
-
-
-# Blood Transfusion Matching for Sickle Cell Patients
+# Research
 
 ## 1. Inspiration
 
