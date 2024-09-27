@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { Button, Field, Textarea, tokens, makeStyles } from "@fluentui/react-components";
-import {insertText} from "../taskpane";
+import { insertText } from '../taskpane';
 
 const OpenAIChat: React.FC = () => {
   const [inputText, setInputText] = useState('');
@@ -13,6 +13,8 @@ const OpenAIChat: React.FC = () => {
     setIsLoading(true);
 
     try {
+      const promptEng = await fetch('../../assets/prompt_eng.txt').then((response) => response.text());
+
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -20,9 +22,12 @@ const OpenAIChat: React.FC = () => {
           Authorization: `Bearer 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`,
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: prompt }],
-          max_tokens: 1000,
+          model: 'gpt-4o',
+          messages: [
+            {role: 'system', content: promptEng},
+            { role: 'user', content: prompt },
+          ],
+          max_tokens: 2000,
         }),
         
       });
@@ -34,7 +39,6 @@ const OpenAIChat: React.FC = () => {
       }
 
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-        // need to segment the message here and pass it as different arguments to insertText
         insertText(data.choices[0].message.content, inputCell);
         // checking direct repsonse
         // setResponseText(data.choices[0].message.content);
@@ -42,13 +46,16 @@ const OpenAIChat: React.FC = () => {
         setResponseText('Unexpected response format');
         throw new Error('Unexpected response format');
       }
+
     } catch (error) {
       console.error('Error:', error);
       setResponseText(`Error: ${error.message}`);
+    
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   const handleSubmit = async (e: React.FormEvent) => { 
     e.preventDefault();
@@ -60,8 +67,12 @@ const OpenAIChat: React.FC = () => {
         range.load('values');
         
         await context.sync();
+
+        if (inputText === '') {
+          setInputText('none');
+        }
         
-        const prompt = "the data in the excel sheet shown in a matrix format: " + JSON.stringify(range.values) + "\n prompt based on the excel data: " + inputText + "Could you respond in a matrix format similar to how excel sheet data is input. For example a response could be '[[hello world!]]' or '[[1,2],[3,4]]'";
+        const prompt = "the data in the excel sheet shown in a matrix format: " + JSON.stringify(range.values) + "\n Extra prompt: " + inputText;
 
         await handleAPI(e, prompt);
         

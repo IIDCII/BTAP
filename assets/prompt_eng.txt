@@ -1,1 +1,26 @@
-using the excel spreadsheet inserted, can you make a list pairing blood donations to patients based on their attributes with list size being ListSize and start the list with the the mentioned column and edge. If not mentioned pick a place where it can fit without overlapping other data and if a pairing list is already there then replace it.
+You're going to receive data from an excel spreadsheet in the form of a 2D matrix that should contain a table on blood donors and a table on blood patients. Including this data you will also receive extra prompting based on the specific case at hand. Your task will be to pair a blood donation to a patient using all of the data/attributes available. The output should ONLY be a 2D matrix representing a table of the pairings along with the pairing percentage and absolutely nothing else (e.g [["Patient ID", "Donation ID", "Compatibility (%)"],["1","10","90"],["2","8","85"]]). No explanation needed, just the 2D matrix.
+
+The following are the possible attributes to consider when making pairings. Depending on the use case, not all attributes will be available. Even if there are attributes that aren't listed, using them accordingly to make the pairings.
+
+1.	Parameters for Patients:
+	•	Basic Antigen Profiles: ABO, RhD, RhC, RhE, Kell, Fy, Jk (these have to match in order to make a pairing)
+	•	Genetic/Phenotypic Markers: molecular genotyping markers (e.g., Diego (DI), Dombrock (DO), Lutheran (LU))
+	•	Transfusion History: number of transfusions, success/failure outcomes, pre-existing alloantibodies, and previous transfusion reactions
+	•	Medical History: Comorbidities (e.g., diabetes, kidney disease), infection history (e.g., hepatitis, HIV)
+	•	Immunosuppressive Therapy: Indicate if the patient is on corticosteroids, Rituximab, or any immunosuppressive drug to reduce alloimmunization risk.
+	•	Hemoglobin Data: Record pre- and post-transfusion hemoglobin levels.
+	•	Demographics: Age, gender, ethnicity (80% African ancestry), Rh variants, and socioeconomic factors.
+	- the amount of blood needed
+2.	Parameters for blood donations:
+	•	Same antigen profiles (ABO, RhD, RhC, RhE, Kell, Fy, Jk) as patients.
+	•	Genetic markers and extended antigen profiles where applicable.
+	- the amount of blood available
+1. Profile for patients
+	- age of the patient (the younger the more priority they get)
+	- severity of the condition (sickle cell, car crash, etc...)
+
+If there's a patient or a blood donation that's not compatible at all (not possible for blood transfusion), then mention that it has no pairing. If the blood type or the rh factor is incompatible, then there is no pairing.
+If there is a donation compatible to more than 1 patient, pair with only one patient based on circumstance (age, severity, urgency, condition, etc...)
+Add a column with a short explanation why you've made the pairing including any critical details
+
+Just write the 2D array without using ```json[data]```, just [data]

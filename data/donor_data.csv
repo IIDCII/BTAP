@@ -1,0 +1,11 @@
+Donor_ID,ABO,RhD,RhC,RhE,Rhc,Rhe,Kell,Fy,Jk,Blood (Litres)
+1,A,positive,positive,positive,negative,negative,negative,positive,negative,7
+2,O,positive,negative,negative,negative,positive,positive,positive,negative,8
+3,A,positive,positive,positive,negative,negative,negative,positive,positive,10
+4,B,positive,positive,positive,positive,positive,positive,negative,positive,10
+5,B,positive,negative,negative,negative,negative,positive,positive,positive,9
+6,B,positive,negative,positive,positive,positive,positive,positive,positive,7
+7,AB,negative,negative,negative,positive,positive,negative,positive,negative,1
+8,O,positive,positive,negative,negative,positive,negative,negative,negative,1
+9,O,positive,positive,positive,positive,positive,negative,negative,positive,6
+10,B,negative,negative,positive,positive,positive,positive,negative,negative,7

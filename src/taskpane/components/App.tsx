@@ -2,7 +2,7 @@ import * as React from "react";
 import Header from "./Header";
 import HeroList, { HeroListItem } from "./HeroList";
 import { makeStyles } from "@fluentui/react-components";
-import { Table24Regular, Edit24Regular, CommentEdit24Regular, ErrorCircle24Regular } from "@fluentui/react-icons";
+import { Table24Regular, Edit24Regular, CommentEdit24Regular, ErrorCircle24Regular, AccessibilityCheckmark24Regular} from "@fluentui/react-icons";
 import OpenAIChat from "./APIHandler";
 
 interface AppProps {
@@ -44,6 +44,10 @@ const App: React.FC<AppProps> = (props: AppProps) => {
     {
       icon: <ErrorCircle24Regular />,
       primaryText: "Reload the add-in if it's not working and make sure to save your sheet before using the add-in. Make sure that the pairings are always up to date.",
+    },
+    {
+      icon: <AccessibilityCheckmark24Regular/>,
+      primaryText: "Always make sure to check the pairings by crossmatching before transfusing blood.",
     },
   ];
 

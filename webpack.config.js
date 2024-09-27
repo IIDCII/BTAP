@@ -93,6 +93,9 @@ module.exports = async (env, options) => {
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"],
       }),
+      new webpack.DefinePlugin({
+        'process.env.OPENAI_API_KEY': JSON.stringify(process.env.OPENAI_API_KEY)
+      }),
     ],
     devServer: {
       hot: true,

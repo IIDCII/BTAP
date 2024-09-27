@@ -1,0 +1,11 @@
+Patient_ID,ABO,RhD,RhC,RhE,Rhc,Rhe,Kell,Fy,Jk,Alloantibodies,Num_Transfusions,Iron_Overload_Risk,Exchange_Transfusion,Transfusion_Success,Age,Gender,Blood (Litres),Ethnicity,Rh_Variant
+1,B,negative,negative,negative,positive,negative,negative,positive,negative,None,17,Yes,Recommended,failure,26,Male,2,Hispanic,False
+2,A,negative,positive,negative,negative,negative,positive,negative,positive,Anti-Fy,10,No,Not Needed,success,57,Male,8,Asian,False
+3,AB,negative,positive,positive,positive,negative,positive,positive,negative,None,24,Yes,Recommended,success,68,Male,9,Hispanic,True
+4,O,negative,negative,negative,negative,negative,negative,positive,positive,Anti-K,13,Yes,Recommended,failure,62,Male,5,Black,False
+5,B,negative,negative,positive,positive,negative,negative,positive,negative,Anti-E,18,Yes,Recommended,failure,25,Female,6,White,False
+6,AB,negative,positive,negative,positive,positive,negative,positive,negative,Anti-K,6,No,Not Needed,success,38,Female,1,White,True
+7,O,positive,negative,negative,negative,positive,positive,positive,negative,Anti-C,18,Yes,Recommended,failure,71,Male,1,Hispanic,True
+8,A,positive,negative,positive,negative,positive,negative,positive,negative,Anti-K,5,No,Not Needed,success,79,Male,6,Black,False
+9,O,negative,positive,positive,negative,negative,negative,positive,positive,Anti-Jk,4,No,Not Needed,success,22,Male,5,White,False
+10,AB,positive,positive,negative,negative,negative,positive,negative,positive,None,18,Yes,Recommended,failure,20,Female,8,Hispanic,True
