@@ -31,7 +31,7 @@ const App: React.FC<AppProps> = (props: AppProps) => {
   const listItems: HeroListItem[] = [
     {
       icon: <Table24Regular />,
-      primaryText: "make sure the blood donoation and patient data is in the current spreadsheet and is clearly labeled",
+      primaryText: "make sure the blood donation and patient data are in the current spreadsheet and are clearly labelled",
     },
     {
       icon: <Edit24Regular />,
