@@ -11,6 +11,11 @@ Streamlining the process of matching blood donations with patients using the ope
 
 # How it works
 
+This Excel add-in, developed using React and the Yo Office library, leverages the OpenAI API for its core functionality. To process the Excel data, the active spreadsheet range is converted into a 2D array. This array is then stringified and incorporated into the API prompt, along with any user-provided input.
+
+The prompt engineering guides the model to match patients with blood donations based on specified attributes and user prompts. The model's string output is subsequently converted back into a 2D array and inserted into the Excel sheet at the user-defined starting coordinates.
+
+
 # Research
 
 ## 1. Inspiration
