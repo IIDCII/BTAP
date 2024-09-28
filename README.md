@@ -3,10 +3,13 @@
 Streamlining the process of matching blood donations with patients using the openai API. This can reduce the time finding the right blood for a patient which can help save lives.
 
 # How to use
-- lorem ipsum
+- make sure the blood donation and patient data are in the current spreadsheet and are clearly labelled
+- Select the cell that you want the response to be inserted into (the top left corner of the table)
+- Add any additional information for pairing if needed. E.g. 'I want only the id's of the pairings'
+- Reload the add-in if it's not working and save your sheet before using it. Make sure that the pairings are always up to date.
+- Always make sure to check the pairings by crossmatching before transfusing blood.
 
 # How it works
-- lorem ipsum
 
 # Research
 
