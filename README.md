@@ -10,6 +10,7 @@ Streamlining the process of matching blood donations with patients using the ope
 - Always make sure to check the pairings by crossmatching before transfusing blood.
 
 # How it works
+![btap logo](assets/btap_diagram.png)
 
 This Excel add-in, developed using React and the Yo Office library, leverages the OpenAI API for its core functionality. To process the Excel data, the active spreadsheet range is converted into a 2D array. This array is then stringified and incorporated into the API prompt, along with any user-provided input.
 
