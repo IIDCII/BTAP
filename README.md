@@ -3,6 +3,21 @@
 Streamlining the process of matching blood donations with patients using the openai API. This can reduce the time finding the right blood for a patient which can help save lives.
 
 # How to use
+## Install
+1. In this repo, locate the btap.xml file and download it
+2. Open Excel (web version)
+![btap logo](assets/install_1.png)
+3. On the Home tab, select Add-ins
+![btap logo](assets/install_2.png)
+4. Select more Add-ins
+![btap logo](assets/install_3.png)
+5. Select my Add-ins
+![btap logo](assets/install_4.png)
+6. Select upload my Add-in
+![btap logo](assets/install_5.png)
+7. Find where you've saved the btap.xml file on your device and the add-in should be applied to your Excel file.
+
+# Using the add-in
 - make sure the blood donation and patient data are in the current spreadsheet and are clearly labelled
 - Select the cell that you want the response to be inserted into (the top left corner of the table)
 - Add any additional information for pairing if needed. E.g. 'I want only the id's of the pairings'
