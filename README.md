@@ -6,15 +6,15 @@ Streamlining the process of matching blood donations with patients using the ope
 ## Install
 1. In this repo, locate the btap.xml file and download it
 2. Open Excel (web version)
-![btap logo](assets/install_1.png)
+![btap logo](assets/install_1.png = 200x)
 3. On the Home tab, select Add-ins
-![btap logo](assets/install_2.png)
+![btap logo](assets/install_2.png = 200x)
 4. Select more Add-ins
-![btap logo](assets/install_3.png)
+![btap logo](assets/install_3.png = 200x)
 5. Select my Add-ins
-![btap logo](assets/install_4.png)
+![btap logo](assets/install_4.png = 200x)
 6. Select upload my Add-in
-![btap logo](assets/install_5.png)
+![btap logo](assets/install_5.png = 200x)
 7. Find where you've saved the btap.xml file on your device and the add-in should be applied to your Excel file.
 
 # Using the add-in
