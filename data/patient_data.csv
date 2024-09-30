@@ -1,11 +1,21 @@
-Patient_ID,ABO,RhD,RhC,RhE,Rhc,Rhe,Kell,Fy,Jk,Alloantibodies,Num_Transfusions,Iron_Overload_Risk,Exchange_Transfusion,Transfusion_Success,Age,Gender,Blood (Litres),Ethnicity,Rh_Variant
-1,B,negative,negative,negative,positive,negative,negative,positive,negative,None,17,Yes,Recommended,failure,26,Male,2,Hispanic,False
-2,A,negative,positive,negative,negative,negative,positive,negative,positive,Anti-Fy,10,No,Not Needed,success,57,Male,8,Asian,False
-3,AB,negative,positive,positive,positive,negative,positive,positive,negative,None,24,Yes,Recommended,success,68,Male,9,Hispanic,True
-4,O,negative,negative,negative,negative,negative,negative,positive,positive,Anti-K,13,Yes,Recommended,failure,62,Male,5,Black,False
-5,B,negative,negative,positive,positive,negative,negative,positive,negative,Anti-E,18,Yes,Recommended,failure,25,Female,6,White,False
-6,AB,negative,positive,negative,positive,positive,negative,positive,negative,Anti-K,6,No,Not Needed,success,38,Female,1,White,True
-7,O,positive,negative,negative,negative,positive,positive,positive,negative,Anti-C,18,Yes,Recommended,failure,71,Male,1,Hispanic,True
-8,A,positive,negative,positive,negative,positive,negative,positive,negative,Anti-K,5,No,Not Needed,success,79,Male,6,Black,False
-9,O,negative,positive,positive,negative,negative,negative,positive,positive,Anti-Jk,4,No,Not Needed,success,22,Male,5,White,False
-10,AB,positive,positive,negative,negative,negative,positive,negative,positive,None,18,Yes,Recommended,failure,20,Female,8,Hispanic,True
+Patient_ID,ABO,RhD,RhC,RhE,Rhc,Rhe,Kell,Fy,Jk,Alloantibodies,Num_Transfusions,Iron_Overload_Risk,Exchange_Transfusion,Transfusion_Success,Age,Gender,Condition,Blood (Litres),Ethnicity,Rh_Variant
+1,A,negative,negative,positive,negative,positive,negative,positive,positive,Anti-E,9,No,Not Needed,success,37,Female,aplastic anemia,1,Black,False
+2,B,negative,positive,negative,positive,negative,positive,positive,positive,Anti-E,8,No,Not Needed,success,29,Male,abbrasion,9,Black,False
+3,B,positive,positive,positive,negative,positive,positive,positive,negative,Anti-C,4,No,Not Needed,success,38,Female,other,1,Hispanic,False
+4,A,negative,positive,negative,negative,positive,positive,negative,positive,Anti-Fy,15,Yes,Recommended,success,37,Female,other,2,White,False
+5,AB,positive,negative,negative,negative,positive,positive,positive,negative,None,4,No,Not Needed,success,25,Female,myelodysplastic syndrome,4,White,False
+6,O,negative,positive,negative,negative,negative,positive,negative,negative,None,19,Yes,Recommended,success,55,Male,thalassemia,10,Hispanic,True
+7,B,positive,positive,negative,positive,negative,positive,negative,positive,Anti-Jk,25,Yes,Recommended,failure,22,Male,abbrasion,9,Hispanic,False
+8,AB,negative,positive,positive,positive,positive,negative,negative,negative,None,19,Yes,Recommended,success,41,Female,abbrasion,8,Hispanic,False
+9,A,negative,negative,negative,positive,positive,negative,positive,negative,Anti-K,17,Yes,Recommended,failure,59,Female,aplastic anemia,2,Asian,True
+10,B,positive,positive,positive,negative,positive,positive,negative,negative,Anti-E,18,Yes,Recommended,success,25,Male,other,3,Hispanic,False
+11,A,positive,negative,positive,positive,negative,positive,positive,positive,Anti-K,22,Yes,Recommended,success,71,Male,aplastic anemia,10,Black,True
+12,AB,positive,positive,positive,negative,positive,positive,positive,negative,Anti-C,7,No,Not Needed,success,51,Male,thalassemia,3,White,True
+13,B,negative,negative,positive,positive,negative,positive,positive,positive,None,16,Yes,Recommended,success,22,Male,other,5,White,True
+14,AB,positive,positive,positive,negative,negative,negative,positive,positive,None,9,No,Not Needed,success,25,Female,abbrasion,2,Asian,False
+15,B,positive,positive,negative,negative,negative,negative,positive,negative,Anti-C,7,No,Not Needed,success,18,Male,hemolytic anemia,6,Asian,True
+16,O,negative,positive,negative,positive,negative,positive,negative,negative,Anti-Jk,17,Yes,Recommended,success,25,Male,myelodysplastic syndrome,5,Hispanic,True
+17,AB,negative,positive,positive,positive,negative,positive,negative,positive,Anti-E,20,Yes,Recommended,success,80,Female,hemolytic anemia,7,Black,False
+18,B,negative,positive,negative,positive,positive,positive,positive,positive,Anti-C,19,Yes,Recommended,failure,45,Female,abbrasion,9,White,False
+19,AB,negative,negative,negative,negative,positive,negative,positive,negative,Anti-E,16,Yes,Recommended,success,57,Male,thalassemia,2,Hispanic,True
+20,AB,negative,negative,positive,negative,positive,negative,negative,negative,Anti-E,3,No,Not Needed,success,71,Female,aplastic anemia,2,White,True

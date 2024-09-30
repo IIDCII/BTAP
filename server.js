@@ -1,40 +1,40 @@
-const express = require('express');
-const axios = require('axios');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
-app.use(express.json());
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const { OpenAI } = require("openai");
 
-app.post ('/api/openai', async (req, res) => {
-    try {
-        const {message} = req.body;
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-        const response  = await axios.post(
-            'https://api.openai.com/v1/chat/completions',
-            {
-                model: "gpt-4",
-                messages: [
-                    {
-                        role: "system",
-                        content: "enter the prompt engineering here"
-                    },
-                    {
-                        role: "user",
-                        content: message
-                    }
-                ],
-                max_tokens: 1000
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        )
+// Setup server
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
 
-    } catch (error) {
-        console.error(error);
-    }
+// endpoint for ChatGPT
+app.post("/chat", async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: 1000,
+      temperature: 0,
+    });
+    res.send(completion.choices[0].message.content);
+  } catch (error) {
+    console.error("Error calling OpenAI:", error);
+    res.status(500).send("Error processing your request");
+  }
+});
+
+const PORT = 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
 });

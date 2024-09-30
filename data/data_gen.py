@@ -15,7 +15,6 @@ def generate_patient_data(num_patients):
     data = []
     for i in range(num_patients):
         patient_id = i + 1
-        condition = random.choice(conditions)
         abo = random.choice(blood_groups)
         rh_d = random.choice(rh_status)
         rh_c = random.choice(antigen_status)
@@ -36,12 +35,13 @@ def generate_patient_data(num_patients):
         gender = random.choice(genders)
         ethnicity = random.choice(ethnicities)
         rh_variant = random.choice([True, False])
+        condition = random.choice(conditions)
         
-        data.append([patient_id, abo, rh_d, rh_c, rh_e, rh_c_lower, rh_e_lower, kell, fy, jk, alloantibodies, num_transfusions, iron_overload_risk, exchange_transfusion, transfusion_success, age, gender, blood_amount, ethnicity, rh_variant])
+        data.append([patient_id, abo, rh_d, rh_c, rh_e, rh_c_lower, rh_e_lower, kell, fy, jk, alloantibodies, num_transfusions, iron_overload_risk, exchange_transfusion, transfusion_success, age, gender, condition, blood_amount, ethnicity, rh_variant])
     
     return pd.DataFrame(data, columns=[
         'Patient_ID', 'ABO', 'RhD', 'RhC', 'RhE', 'Rhc', 'Rhe', 'Kell', 'Fy', 'Jk', 'Alloantibodies', 
-        'Num_Transfusions', 'Iron_Overload_Risk', 'Exchange_Transfusion', 'Transfusion_Success', 'Age', 'Gender', 'Blood (Litres)','Ethnicity', 'Rh_Variant'])
+        'Num_Transfusions', 'Iron_Overload_Risk', 'Exchange_Transfusion', 'Transfusion_Success', 'Age', 'Gender', 'Condition', 'Blood (Litres)','Ethnicity', 'Rh_Variant'])
 
 # Function to generate synthetic donor data
 def generate_donor_data(num_donors):
@@ -65,7 +65,7 @@ def generate_donor_data(num_donors):
         'Donor_ID', 'ABO', 'RhD', 'RhC', 'RhE', 'Rhc', 'Rhe', 'Kell', 'Fy', 'Jk', 'Blood (Litres)'])
 
 # Example usage to generate synthetic data
-num_patients = 10
+num_patients = 20
 num_donors = 10
 
 patient_data = generate_patient_data(num_patients)
