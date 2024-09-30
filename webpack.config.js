@@ -28,6 +28,12 @@ module.exports = async (env, options) => {
     },
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"],
+      fallback: {
+        "crypto": require.resolve("crypto-browserify"),
+        "os": require.resolve("os-browserify/browser"),
+        "path": require.resolve("path-browserify"),
+        "stream": require.resolve("stream-browserify")
+      },
     },
     module: {
       rules: [
@@ -93,9 +99,14 @@ module.exports = async (env, options) => {
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"],
       }),
-      new webpack.DefinePlugin({
-        'process.env.OPENAI_API_KEY': JSON.stringify(process.env.OPENAI_API_KEY)
+      
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
       }),
+
+      new webpack.DefinePlugin({
+        'process.env.OPENAI_API_KEY': JSON.stringify('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')
+      })
     ],
     devServer: {
       hot: true,
