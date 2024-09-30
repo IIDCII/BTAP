@@ -10,6 +10,7 @@ Streamlining the process of matching blood donations with patients using the ope
 - Always make sure to check the pairings by crossmatching before transfusing blood.
 
 # How it works
+![btap logo](assets/btap_diagram.png)
 
 This Excel add-in, developed using React and the Yo Office library, leverages the OpenAI API for its core functionality. To process the Excel data, the active spreadsheet range is converted into a 2D array. This array is then stringified and incorporated into the API prompt, along with any user-provided input.
 
@@ -65,4 +66,4 @@ With continued development and funding, this system has the potential to become 
 - National Center for Biotechnology Information (NCBI), 2021. *Transfusion of red cells matched for Rh and K antigens in sickle cell disease*. Available at: <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8252926/> [Accessed 18 September 2024].
 - NHS Blood and Transplant, 2024. *Sickle Cell Awareness and Data Collection*. Available at: <https://www.gov.uk/government/collections/sickle-cell-and-thalassaemia-screening-data-collection> [Accessed 18 September 2024].
 - PubMed, 2021. *Data security and AI in transfusion medicine*. Available at: <https://pubmed.ncbi.nlm.nih.gov/34283174/> [Accessed 18 September 2024].
-- Tosin, 2022. *My Journey with Sickle Cell*. Available at: <https://www.youtube.com/watch?v=Ois9KVHLYf8> [Accessed 18 September 2024].
+Inside Edition (How Sickle Cell Anemia Affects This 13-Year-Old Girl). Available at: https://www.youtube.com/watch?v=Ois9KVHLYf8 [Accessed 18 September 2024].
