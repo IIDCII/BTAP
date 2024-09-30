@@ -66,4 +66,4 @@ With continued development and funding, this system has the potential to become 
 - National Center for Biotechnology Information (NCBI), 2021. *Transfusion of red cells matched for Rh and K antigens in sickle cell disease*. Available at: <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8252926/> [Accessed 18 September 2024].
 - NHS Blood and Transplant, 2024. *Sickle Cell Awareness and Data Collection*. Available at: <https://www.gov.uk/government/collections/sickle-cell-and-thalassaemia-screening-data-collection> [Accessed 18 September 2024].
 - PubMed, 2021. *Data security and AI in transfusion medicine*. Available at: <https://pubmed.ncbi.nlm.nih.gov/34283174/> [Accessed 18 September 2024].
-- Tosin, 2022. *My Journey with Sickle Cell*. Available at: <https://www.youtube.com/watch?v=Ois9KVHLYf8> [Accessed 18 September 2024].
+Inside Edition (How Sickle Cell Anemia Affects This 13-Year-Old Girl). Available at: https://www.youtube.com/watch?v=Ois9KVHLYf8 [Accessed 18 September 2024].
