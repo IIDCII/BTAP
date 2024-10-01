@@ -8,28 +8,29 @@ Streamlining the process of matching blood donations with patients using the Ope
 
 ### Installation
 
-As this application is currently in beta, manual installation is required. The add-in will be available on Microsoft AppSource later.
+Due to a lack of funding, this application is still in beta, therefore, manual installation is required. The add-in will be available on Microsoft AppSource later.
 
 1. In this repo, download `BTAPackage.zip`, unzip it, and store it in the desired location.
 2. Edit the `manifest.xml` file and replace every `'path/to/file'` with the path where you stored the BTAPackage.
-3. Open Excel (for the web version).
-4. Select **Add-ins** on the far right of the **Home** tab.
+3. in the `taskpane.js` file, replace the Openai API key with yours. Find this by finding `Bearer`. The key will be the following long string. Learn more about openai keys [here](https://platform.openai.com/api-keys)
+4. Open Excel (for the web version).
+5. Select **Add-ins** on the far right of the **Home** tab.
 
    ![Add-ins](assets/install_1.png)
 
-5. Select **More Add-ins**.
+6. Select **More Add-ins**.
 
    ![More Add-ins](assets/install_2.png)
 
-6. Select **MY ADD-INS**.
+7. Select **MY ADD-INS**.
 
    ![My Add-ins](assets/install_3.png)
 
-7. Select **Upload My Add-in**.
+8. Select **Upload My Add-in**.
 
    ![Upload My Add-in](assets/install_4.png)
 
-8. Find the `manifest.xml` file in the BTAPackage and upload it.
+9. Find the `manifest.xml` file in the BTAPackage and upload it.
 
    ![Upload manifest](assets/install_5.png)
 
